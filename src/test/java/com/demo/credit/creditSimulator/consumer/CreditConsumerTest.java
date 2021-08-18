@@ -57,6 +57,19 @@ public class CreditConsumerTest {
         //check evaluation that's correct
         assertThat(consumer.evaluate()).isTrue();
     }
+    @Test
+    public void test7() {
+        //check second range test case
+        String name = "peter";
+        String email = "peter@email.com";
+        Integer amount = 1000001; // $1.500.000
+        Integer quotas = 15;
+        Integer income = 300000; // $1.000.000
+        CreditConsumer consumer = new CreditConsumer(name, email, amount, quotas, income);
+
+        //check evaluation that's correct
+        assertThat(consumer.evaluate()).isFalse();
+    }
 /*
     @Test
     public void test3() {
